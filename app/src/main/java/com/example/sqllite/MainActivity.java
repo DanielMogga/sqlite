@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     if (s2.equals(s3)){
                         Boolean chkemail=db.chkemail(s1);
                         if (chkemail==true){
+                            //startActivity(new Intent(MainActivity.this,HomeActivity.class));
                             Toast.makeText(getApplicationContext(),"Resgistration Sucessfull",Toast.LENGTH_SHORT).show();
 
                         }

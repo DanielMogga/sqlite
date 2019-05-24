@@ -37,18 +37,38 @@ public class LoginActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email=e1.getText().toString();
-                String password=e2.getText().toString();
-                Boolean chkemailpass =db.emailpassword(email,password);
-                if (chkemailpass==true)
-                    Toast.makeText(getApplicationContext(),"successful login",Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getApplicationContext(),"Wrong email or password",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                //String email=e1.getText().toString();
+                //String password=e2.getText().toString();
+               // Boolean chkemailpass =db.emailpassword(email,password);
+               // if (chkemailpass==true) {
+                    Toast.makeText(getApplicationContext(), "successful login", Toast.LENGTH_SHORT).show();
+                //}
+                //else {
+                    Toast.makeText(getApplicationContext(), "Wrong email or password", Toast.LENGTH_SHORT).show();
+                //}
+
+                //try new code
+                b1_onClick();
+
 
             }
         });
 
+
+    }
+
+    private void b1_onClick() {
+        String email=e1.getText().toString();
+        String password=e2.getText().toString();
+        Boolean chkemail=db.chkemail(email);
+        if (chkemail==true){
+            startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+            Toast.makeText(getApplicationContext(),"Sucessfull login",Toast.LENGTH_SHORT).show();
+
+        } else {
+        Toast.makeText(getApplicationContext(),"faild",Toast.LENGTH_SHORT).show();
+
+    }
 
     }
 }
